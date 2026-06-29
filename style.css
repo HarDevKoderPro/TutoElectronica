@@ -56,6 +56,28 @@ body {
     gap: 1rem;
 }
 
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    line-height: 1;
+    transition: opacity 0.2s;
+}
+
+.hamburger:hover {
+    opacity: 0.8;
+}
+
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
@@ -105,9 +127,6 @@ body {
 .sidebar-header {
     padding: 1.5rem;
     border-bottom: 1px solid var(--border-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .sidebar-header h3 {
@@ -115,13 +134,23 @@ body {
     color: var(--text-primary);
 }
 
-.sidebar-toggle {
+/* ===== Sidebar Overlay (mobile) ===== */
+.sidebar-overlay {
     display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--text-primary);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 899;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.active {
+    display: block;
+    opacity: 1;
 }
 
 .nav-list {
@@ -674,16 +703,16 @@ tbody tr:hover {
 
 /* ===== Responsive Design ===== */
 @media (max-width: 1024px) {
+    .hamburger {
+        display: block;
+    }
+
     .sidebar {
         transform: translateX(-100%);
     }
 
     .sidebar.open {
         transform: translateX(0);
-    }
-
-    .sidebar-toggle {
-        display: block;
     }
 
     .main-content {

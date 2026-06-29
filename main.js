@@ -954,10 +954,20 @@ function setupEventListeners() {
     });
 
     // Toggle sidebar en móvil
-    const sidebarToggle = document.getElementById('sidebarToggle');
-    if (sidebarToggle) {
-        sidebarToggle.addEventListener('click', () => {
-            document.getElementById('sidebar').classList.toggle('open');
+    const hamburger = document.getElementById('hamburgerBtn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    function toggleSidebar() {
+        sidebar.classList.toggle('open');
+        overlay.classList.toggle('active');
+    }
+    if (hamburger) {
+        hamburger.addEventListener('click', toggleSidebar);
+    }
+    if (overlay) {
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
         });
     }
 }
@@ -972,6 +982,7 @@ function navigateToSection(sectionId) {
     
     if (window.innerWidth <= 1024) {
         document.getElementById('sidebar').classList.remove('open');
+        document.getElementById('sidebarOverlay').classList.remove('active');
     }
     
     window.scrollTo({ top: 0, behavior: 'smooth' });

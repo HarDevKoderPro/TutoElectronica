@@ -11,7 +11,10 @@
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <h1 class="logo">⚡ Introducción a la Electrónica</h1>
+            <div class="header-left">
+                <button class="hamburger" id="hamburgerBtn">☰</button>
+                <h1 class="logo">⚡ Introducción a la Electrónica</h1>
+            </div>
             <div class="progress-bar">
                 <div class="progress-fill" id="progressFill"></div>
                 <span class="progress-text" id="progressText">0% Completado</span>
@@ -23,7 +26,6 @@
     <nav class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <h3>Contenido del Curso</h3>
-            <button class="sidebar-toggle" id="sidebarToggle">☰</button>
         </div>
         <ul class="nav-list" id="navList">
             <li><a href="#tema1" data-section="tema1">1. Conceptos básicos de electrónica</a></li>
@@ -43,6 +45,9 @@
             <li><a href="#tema15" data-section="tema15">15. Taller de Simulación</a></li>
         </ul>
     </nav>
+
+    <!-- Sidebar Overlay (mobile) -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <!-- Main Content -->
     <main class="main-content" id="mainContent">
