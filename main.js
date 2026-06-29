@@ -1008,12 +1008,10 @@ function getSectionNav(sectionId) {
     const idx = SECTION_ORDER.indexOf(sectionId);
     const prev = idx > 0 ? SECTION_ORDER[idx - 1] : null;
     const next = idx < SECTION_ORDER.length - 1 ? SECTION_ORDER[idx + 1] : null;
-    const prevTitle = prev ? (prev === 'welcome' ? 'Inicio' : courseData[prev]?.title?.replace(/^\d+\.\s*/, '')) : '';
-    const nextTitle = next ? courseData[next]?.title?.replace(/^\d+\.\s*/, '') : '';
     return `
         <div class="section-nav">
-            ${prev ? `<button class="nav-arrow prev" onclick="navigateToSection('${prev}')">← ${prevTitle}</button>` : '<span></span>'}
-            ${next ? `<button class="nav-arrow next" onclick="navigateToSection('${next}')">${nextTitle} →</button>` : '<span></span>'}
+            ${prev ? `<button class="nav-arrow" onclick="navigateToSection('${prev}')">‹</button>` : '<span></span>'}
+            ${next ? `<button class="nav-arrow" onclick="navigateToSection('${next}')">›</button>` : '<span></span>'}
         </div>
     `;
 }
