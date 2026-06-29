@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción a la Electrónica - Curso Interactivo</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">⚡ Introducción a la Electrónica</h1>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+                <span class="progress-text" id="progressText">0% Completado</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Contenido del Curso</h3>
+            <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+        </div>
+        <ul class="nav-list" id="navList">
+            <li><a href="#tema1" data-section="tema1">1. Conceptos básicos de electrónica</a></li>
+            <li><a href="#tema2" data-section="tema2">2. Evolución de la Electrónica</a></li>
+            <li><a href="#tema3" data-section="tema3">3. Electrónica Análoga</a></li>
+            <li><a href="#tema4" data-section="tema4">4. Electrónica Digital</a></li>
+            <li><a href="#tema5" data-section="tema5">5. Electrónica Programable</a></li>
+            <li><a href="#tema6" data-section="tema6">6. Microcontroladores</a></li>
+            <li><a href="#tema7" data-section="tema7">7. Magnitudes Eléctricas</a></li>
+            <li><a href="#tema8" data-section="tema8">8. Tabla Resumen</a></li>
+            <li><a href="#tema9" data-section="tema9">9. Mediciones Eléctricas</a></li>
+            <li><a href="#tema10" data-section="tema10">10. Resistencias</a></li>
+            <li><a href="#tema11" data-section="tema11">11. Condensadores</a></li>
+            <li><a href="#tema12" data-section="tema12">12. Transistor</a></li>
+            <li><a href="#tema13" data-section="tema13">13. Circuito Integrado</a></li>
+            <li><a href="#tema14" data-section="tema14">14. Simulación Electrónica</a></li>
+            <li><a href="#tema15" data-section="tema15">15. Taller de Simulación</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- El contenido se cargará dinámicamente desde main.js -->
+    </main>
+
+    <!-- Visor 3D de Componentes -->
+    <div class="component-3d-viewer" id="component3DViewer">
+        <div class="viewer-container">
+            <div class="viewer-header">
+                <h3 id="componentName">Componente</h3>
+                <button class="close-viewer" onclick="closeViewer3D()">✕</button>
+            </div>
+            <div class="viewer-canvas" id="viewerCanvas">
+                <div class="svg-3d-container" id="svg3DContainer">
+                    <!-- SVG se carga aquí dinámicamente -->
+                </div>
+            </div>
+            <div class="viewer-controls">
+                <div class="rotation-controls">
+                    <label>Rotación X: <input type="range" id="rotateX" min="0" max="360" value="30"></label>
+                    <label>Rotación Y: <input type="range" id="rotateY" min="0" max="360" value="45"></label>
+                    <label>Rotación Z: <input type="range" id="rotateZ" min="0" max="360" value="0"></label>
+                </div>
+                <div class="zoom-controls">
+                    <button onclick="zoomIn()">🔍+</button>
+                    <button onclick="zoomOut()">🔍-</button>
+                    <button onclick="resetView()">↺ Reset</button>
+                </div>
+            </div>
+            <div class="component-info">
+                <h4>📋 Especificaciones</h4>
+                <ul id="componentSpecs">
+                    <!-- Se llena dinámicamente -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
