@@ -743,6 +743,17 @@ tbody tr:hover {
     .main-content {
         margin-top: 170px;
         padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .section-nav {
+        display: flex !important;
+        order: 10;
+        gap: 3rem;
+        padding: 3rem 0;
+        justify-content: center;
+        margin-bottom: 2rem;
     }
 
     .content-card {
@@ -1615,32 +1626,39 @@ tbody tr:hover {
     padding: 0.3rem;
 }
 
-/* ===== Navegación entre secciones (solo mobile) ===== */
+/* ===== Navegación entre secciones ===== */
 .section-nav {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    padding: 3rem 0;
-    margin-top: 2rem;
-    border-top: 1px solid var(--border-color);
+    display: none !important;
 }
 
 @media (max-width: 768px) {
+    .main-content {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    #section-content {
+        width: 100%;
+        order: 1;
+    }
     .section-nav {
-        display: flex;
-        gap: 3rem;
-        padding: 3rem 0;
+        display: flex !important;
+        order: 2;
         justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        padding: 4rem 0;
+        margin-top: 2rem;
+        border-top: 2px solid var(--border-color);
+        width: 100%;
     }
     .nav-arrow {
-        width: 140px;
-        height: 140px;
+        min-width: 151px;
+        height: 151px;
         border-radius: 50%;
         border: none;
-        background: var(--accent-color);
+        background: var(--accent-color) !important;
         color: var(--dark-bg);
-        font-size: 6rem;
+        font-size: 8rem;
         font-weight: bold;
         cursor: pointer;
         transition: var(--transition);
@@ -1648,11 +1666,11 @@ tbody tr:hover {
         align-items: center;
         justify-content: center;
         line-height: 1;
-        box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+        box-shadow: 0 12px 30px rgba(245, 158, 11, 0.5);
     }
     .nav-arrow:hover {
         transform: scale(1.1);
-        box-shadow: 0 12px 30px rgba(245, 158, 11, 0.5);
+        box-shadow: 0 15px 40px rgba(245, 158, 11, 0.6);
     }
     .nav-arrow:active {
         transform: scale(0.9);

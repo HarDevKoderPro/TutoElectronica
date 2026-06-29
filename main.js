@@ -995,8 +995,12 @@ function loadSection(sectionId) {
     const sectionData = courseData[sectionId];
     
     if (sectionData) {
-        mainContent.innerHTML = sectionData.content;
-        mainContent.innerHTML += getSectionNav(sectionId);
+        let html = `<div id="section-content">${sectionData.content}</div>`;
+        // Solo añadir navegación si estamos en móvil (ancho menor a 768px)
+        if (window.innerWidth <= 768) {
+            html += getSectionNav(sectionId);
+        }
+        mainContent.innerHTML = html;
     } else {
         mainContent.innerHTML = '<div class="content-card"><h2>Sección no encontrada</h2></div>';
     }
