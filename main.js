@@ -925,6 +925,8 @@ const exercisesData = {
     }
 };
 
+const SECTION_ORDER = ['welcome', 'tema1', 'tema2', 'tema3', 'tema4', 'tema5', 'tema6', 'tema7', 'tema8', 'tema9', 'tema10', 'tema11', 'tema12', 'tema13', 'tema14', 'tema15'];
+
 // ===== ESTADO DE LA APLICACIÓN =====
 let currentSection = 'welcome';
 let completedSections = new Set();
@@ -994,11 +996,26 @@ function loadSection(sectionId) {
     
     if (sectionData) {
         mainContent.innerHTML = sectionData.content;
+        mainContent.innerHTML += getSectionNav(sectionId);
     } else {
         mainContent.innerHTML = '<div class="content-card"><h2>Sección no encontrada</h2></div>';
     }
     
     if (document.getElementById('colorResistorSVG')) renderResistorCalc();
+}
+
+function getSectionNav(sectionId) {
+    const idx = SECTION_ORDER.indexOf(sectionId);
+    const prev = idx > 0 ? SECTION_ORDER[idx - 1] : null;
+    const next = idx < SECTION_ORDER.length - 1 ? SECTION_ORDER[idx + 1] : null;
+    const prevTitle = prev ? (prev === 'welcome' ? 'Inicio' : courseData[prev]?.title?.replace(/^\d+\.\s*/, '')) : '';
+    const nextTitle = next ? courseData[next]?.title?.replace(/^\d+\.\s*/, '') : '';
+    return `
+        <div class="section-nav">
+            ${prev ? `<button class="nav-arrow prev" onclick="navigateToSection('${prev}')">← ${prevTitle}</button>` : '<span></span>'}
+            ${next ? `<button class="nav-arrow next" onclick="navigateToSection('${next}')">${nextTitle} →</button>` : '<span></span>'}
+        </div>
+    `;
 }
 
 function updateActiveNav(sectionId) {
