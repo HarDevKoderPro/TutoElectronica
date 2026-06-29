@@ -1652,13 +1652,13 @@ tbody tr:hover {
         width: 100%;
     }
     .nav-arrow {
-        min-width: 151px;
-        height: 151px;
+        min-width: 180px;
+        height: 180px;
         border-radius: 50%;
         border: none;
         background: var(--accent-color) !important;
         color: var(--dark-bg);
-        font-size: 8rem;
+        font-size: 10rem;
         font-weight: bold;
         cursor: pointer;
         transition: var(--transition);
@@ -1666,7 +1666,7 @@ tbody tr:hover {
         align-items: center;
         justify-content: center;
         line-height: 1;
-        box-shadow: 0 12px 30px rgba(245, 158, 11, 0.5);
+        box-shadow: 0 15px 45px rgba(245, 158, 11, 0.6);
     }
     .nav-arrow:hover {
         transform: scale(1.1);
