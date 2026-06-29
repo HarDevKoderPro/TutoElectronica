@@ -733,6 +733,16 @@ tbody tr:hover {
     .header .container {
         flex-direction: column;
         text-align: center;
+        padding: 0 1rem;
+    }
+
+    .header {
+        padding: 1rem 0;
+    }
+
+    .main-content {
+        margin-top: 110px;
+        padding: 1rem;
     }
 
     .hero h1 {
@@ -747,8 +757,8 @@ tbody tr:hover {
         grid-template-columns: 1fr;
     }
 
-    .main-content {
-        padding: 1rem;
+    .hero {
+        padding: 2rem 1rem;
     }
 }
 
