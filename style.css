@@ -1631,7 +1631,7 @@ tbody tr:hover {
     display: none !important;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
     .main-content {
         display: flex !important;
         flex-direction: column !important;
@@ -1653,6 +1653,7 @@ tbody tr:hover {
     }
     .nav-arrow {
         min-width: 180px;
+        width: 180px;
         height: 180px;
         border-radius: 50%;
         border: none;

@@ -891,8 +891,8 @@ const exercisesData = {
         ]
     },
     '15-2': {
-        title: 'Contador 0-9 con 7448',
-        objective: 'Construir un contador decimal usando 555, 7490, 7448 y display 7 segmentos',
+        title: 'Contador 0-9',
+        objective: 'Contador decimal usando 555, 7493 y 4511',
         materials: [
             { id: 'ic-555', name: 'CI 555', qty: 1 },
             { id: 'ic-7490', name: 'CI 7490', qty: 1 },
@@ -972,6 +972,20 @@ function setupEventListeners() {
             overlay.classList.remove('active');
         });
     }
+
+    let navVisible = shouldShowSectionNav();
+    window.addEventListener('resize', () => {
+        const nextNavVisible = shouldShowSectionNav();
+        if (nextNavVisible !== navVisible) {
+            navVisible = nextNavVisible;
+            loadSection(currentSection);
+            updateActiveNav(currentSection);
+        }
+    });
+}
+
+function shouldShowSectionNav() {
+    return window.innerWidth <= 500;
 }
 
 // ===== NAVEGACIÓN =====
@@ -996,8 +1010,7 @@ function loadSection(sectionId) {
     
     if (sectionData) {
         let html = `<div id="section-content">${sectionData.content}</div>`;
-        // Solo añadir navegación si estamos en móvil (ancho menor a 768px)
-        if (window.innerWidth <= 768) {
+        if (shouldShowSectionNav()) {
             html += getSectionNav(sectionId);
         }
         mainContent.innerHTML = html;
